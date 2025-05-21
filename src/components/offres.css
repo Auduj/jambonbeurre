@@ -1,146 +1,178 @@
 /* src/components/Offres.css */
 .offres-section {
-    padding: 60px 20px;
-    background-color: #ffffff;
-  }
-  
-  .offres-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .section-subtitle {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 40px;
-  }
-  
+  padding: 80px 20px; /* Augmentation du padding vertical */
+  background-color: var(--background-color); /* Fond clair par défaut */
+}
+
+.offres-section h2 {
+  text-align: center;
+  font-size: 2.8rem; /* Titre de section plus grand */
+  color: var(--primary-color);
+  margin-bottom: 20px; /* Espace sous le titre */
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  margin-bottom: 50px; /* Espace accru avant les cartes */
+  max-width: 700px; /* Limiter la largeur du sous-titre */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.offres-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px; /* Espace accru entre les cartes */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
   .offres-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Une colonne par défaut pour mobile */
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* Pour 3 offres, on peut utiliser repeat(3, 1fr) ou auto-fit pour plus de flexibilité */
+    /* Si vous avez 4 offres (1 gratuite + 3 payantes), adaptez ici */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
-  
-  @media (min-width: 768px) {
-    .offres-grid {
-      grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour tablettes */
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .offres-grid {
-      /* Adaptez le nombre de colonnes en fonction du nombre d'offres */
-      /* Par exemple, pour 4 offres (1 gratuite + 3 payantes) */
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-  }
-  
-  .offre-carte {
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 25px;
-    text-align: left;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pour aligner le bouton en bas */
-  }
-  
-  .offre-carte.offre-gratuite {
-    border-left: 5px solid #28a745; /* Accent pour l'offre gratuite */
-  }
-  
-  .offre-carte:not(.offre-gratuite) {
-    border-left: 5px solid #007bff; /* Accent pour les offres payantes */
-  }
-  
-  
-  .offre-carte h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .offre-type {
-    font-size: 0.9rem;
-    background-color: #007bff;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: normal;
-  }
-  
-  .offre-gratuite .offre-type {
-    background-color: #28a745;
-  }
-  
-  
-  .offre-description {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 15px;
-    flex-grow: 1; /* Permet à la description de prendre l'espace disponible */
-  }
-  
-  .offre-carte ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-    flex-grow: 1;
-  }
-  
-  .offre-carte ul li {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-  }
-  
-  .offre-carte ul li::before {
-    content: '✓'; /* Ou une icône SVG */
-    color: #28a745; /* Vert pour les points positifs */
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-  }
-  
-  .offre-avantages {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 15px;
-    font-style: italic;
-  }
-  
-  .offre-tarif {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 20px;
-    text-align: right;
-  }
-  
-  .offre-gratuite .offre-tarif {
-    color: #28a745;
-  }
-  
-  .offre-carte .btn {
-    display: block;
-    width: 100%;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    margin-top: auto; /* Pousse le bouton en bas */
-  }
+}
+
+.offre-carte {
+  background-color: #ffffff; /* Fond blanc pour les cartes */
+  border: 1px solid #e0e0e0;
+  border-radius: 12px; /* Bords plus arrondis */
+  padding: 35px 30px; /* Padding interne augmenté */
+  text-align: left;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Ombre plus douce et diffuse */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offre-carte:hover {
+  transform: translateY(-8px); /* Effet de soulèvement plus prononcé */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Accentuations différentes pour les offres */
+.offre-carte.offre-gratuite {
+  border-top: 6px solid var(--secondary-color); /* Bordure verte plus épaisse */
+}
+
+.offre-carte:not(.offre-gratuite) {
+  border-top: 6px solid var(--primary-color); /* Bordure bleue plus épaisse */
+}
+
+/* Badge pour l'offre la plus populaire (à ajouter dynamiquement si besoin) */
+.offre-carte.offre-populaire {
+  position: relative;
+  border-top-color: var(--accent-color); /* Utiliser la couleur d'accent pour populaire */
+}
+
+.offre-populaire::before {
+  content: "Populaire";
+  position: absolute;
+  top: -15px; /* Ajuster pour chevaucher la bordure */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+
+.offre-carte h3 {
+  font-size: 1.6rem; /* Taille du titre de l'offre */
+  color: var(--text-color); /* Couleur de texte standard pour le titre de la carte */
+  margin-bottom: 8px; /* Espace réduit sous le titre */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.offre-type {
+  font-size: 0.85rem; /* Taille du type d'offre */
+  background-color: var(--primary-color);
+  color: white;
+  padding: 5px 12px; /* Padding ajusté */
+  border-radius: 15px; /* Badge plus arrondi */
+  font-weight: bold; /* Plus visible */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.offre-gratuite .offre-type {
+  background-color: var(--secondary-color);
+}
+
+.offre-description {
+  font-size: 0.95rem; /* Description légèrement plus petite */
+  color: var(--light-text-color);
+  margin-bottom: 25px; /* Espace avant la liste des détails */
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+.offre-carte ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px; /* Espace avant les avantages/tarif */
+  flex-grow: 1;
+}
+
+.offre-carte ul li {
+  font-size: 0.95rem; /* Détails légèrement plus petits */
+  color: var(--light-text-color);
+  margin-bottom: 12px; /* Espacement des items de liste */
+  display: flex;
+  align-items: flex-start;
+}
+
+.offre-detail-icon {
+  color: var(--secondary-color); /* Couleur des icônes check */
+  margin-right: 10px;
+  margin-top: 3px; /* Ajustement vertical */
+  font-size: 1.1em; /* Taille de l'icône */
+  flex-shrink: 0;
+}
+
+.offre-avantages {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0f4f8; /* Fond légèrement différent pour les avantages */
+  border-radius: 6px;
+  font-style: normal; /* On enlève l'italique si le fond le distingue assez */
+}
+
+.offre-avantages strong {
+  color: var(--primary-color);
+}
+
+.offre-tarif {
+  font-size: 2.2rem; /* Tarif plus grand */
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 30px; /* Espace avant le bouton */
+  text-align: center; /* Centrer le tarif */
+}
+
+.offre-gratuite .offre-tarif {
+  color: var(--secondary-color);
+  font-size: 1.8rem; /* Tarif "GRATUIT" peut être un peu plus petit */
+}
+
+.offre-carte .offre-action {
+  display: block;
+  width: 100%;
+  padding: 15px 20px; /* Boutons plus grands */
+  font-size: 1.05em;
+  margin-top: auto; /* Pousse le bouton en bas */
+  /* Styles de .btn, .btn-primary, .btn-secondary sont dans App.css */
+}
