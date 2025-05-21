@@ -32,7 +32,7 @@ const APropos = () => {
       <div className="container">
         <div className="apropos-content">
           <div className="apropos-text">
-            <h2>À Propos de JambonBeurre</h2>
+            <h2>À Propos de Moi</h2>
             {/* MODIFICATION : Intégration de votre nouveau texte */}
             <p>
               Je m'appelle JambonBeurre, joueur compétitif depuis plusieurs années sur des jeux d'équipe tels que World of Warcraft (Top 500 en raid mythique 20 joueurs et Top 20 Dh Havoc en Donjon), Apex Legends (Top 500) et Overwatch 2 (Top 500), et actuellement classé parmi les Top 1000 mondial sur Marvel Rivals.
