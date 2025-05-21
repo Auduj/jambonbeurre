@@ -1,0 +1,198 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+html {
+  scroll-behavior: smooth; /* Pour un défilement doux avec les ancres */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px; /* Limite la largeur du contenu principal */
+  margin: 0 auto;
+  padding: 0 15px; /* Espacement intérieur de base */
+}
+
+/* Styles pour le header (navbar) */
+.main-header {
+  background-color: #ffffff;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky; /* Barre de navigation fixe en haut */
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.main-header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff; /* Ta couleur principale */
+  text-decoration: none;
+}
+
+.main-header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espace entre les liens */
+}
+
+.main-header nav ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.main-header nav ul li a:hover,
+.main-header nav ul li a.active { /* Classe 'active' à gérer avec JS si besoin pour indiquer la section visible */
+  color: #007bff;
+  background-color: #e7f3ff;
+}
+
+.nav-cta {
+  background-color: #007bff;
+  color: white !important; /* Important pour surcharger la couleur de base du lien */
+  border-radius: 5px;
+  padding: 10px 20px !important; /* Important pour surcharger le padding de base */
+}
+
+.nav-cta:hover {
+  background-color: #0056b3 !important;
+  color: white !important;
+}
+
+/* Styles de base pour les boutons (réutilisables) */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.btn-secondary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive pour la navigation (menu burger sur mobile) */
+/* ... (Ajouter le CSS pour un menu burger si nécessaire) ... */
+
+/* S'assurer que les sections ont un padding top pour ne pas être cachées par le header sticky */
+section {
+  padding-top: 80px; /* Hauteur approximative du header + marge */
+  margin-top: -80px; /* Compense le padding pour que les ancres mènent au bon endroit */
+}
+section:first-of-type { /* Sauf pour la première section si elle n'a pas besoin de ce décalage */
+    padding-top: 20px; /* ou la valeur d'origine */
+    margin-top: 0;
+}
+/* Pour la section accueil spécifiquement si elle est la première */
+#accueil {
+    padding-top: 20px; /* Réinitialiser ou ajuster le padding-top si besoin */
+    margin-top: 0; /* Réinitialiser la marge négative */
+}
+
+
+/* Cache le menu burger par défaut */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .main-header nav ul {
+        display: none; /* Cache le menu normal sur mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Hauteur du header */
+        left: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .main-header nav ul.active { /* Classe à ajouter avec JS pour afficher le menu */
+        display: flex;
+    }
+
+    .main-header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-header nav ul li a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton burger sur mobile */
+    }
+
+    /* Ajustement du padding des sections pour le header sticky */
+    section {
+      padding-top: 70px;
+      margin-top: -70px;
+    }
+    #accueil {
+        padding-top: 20px;
+        margin-top: 0;
+    }
+}

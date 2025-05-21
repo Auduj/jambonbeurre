@@ -1,0 +1,64 @@
+/* src/components/FAQ.css */
+.faq-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+  }
+  
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .faq-item.open .faq-question {
+    background-color: #e7f3ff; /* Léger fond quand ouvert */
+  }
+  
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .faq-reponse {
+    padding: 0 20px 20px 20px; /* Padding uniquement en bas et sur les côtés */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    border-top: 1px solid #e0e0e0; /* Ligne de séparation visible quand ouvert */
+    /* Animation d'ouverture/fermeture */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /*padding pour éviter un saut brusque */
+  }
+  
+  .faq-item.open .faq-reponse {
+    max-height: 500px; /* Assez grand pour contenir la réponse */
+    padding: 20px; /* Rétablir le padding complet */
+    transition: max-height 0.4s ease-in, padding 0.4s ease-in;
+  }
