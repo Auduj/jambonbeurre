@@ -1,115 +1,159 @@
 /* src/components/APropos.css */
 .apropos-section {
-  padding: 80px 20px; /* Augmentation du padding vertical */
-  background-color: var(--light-gray-background); /* Utilisation variable, pour alternance */
+  padding: 80px 20px; /* Padding vertical augmenté */
+  background-color: var(--light-gray-background); /* Couleur de fond pour alternance */
 }
 
 .apropos-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  flex-direction: column; /* Par défaut pour mobile */
+  gap: 30px; /* Espace entre les blocs texte et visuels sur mobile */
 }
 
 @media (min-width: 992px) {
   .apropos-content {
-    flex-direction: row;
-    align-items: flex-start; /* Alignement au début pour mieux gérer les hauteurs différentes */
+    flex-direction: row; /* Texte à gauche, visuels à droite sur desktop */
+    align-items: flex-start; /* Pour un meilleur alignement si les contenus ont des hauteurs différentes */
+    gap: 50px; /* Espace accru entre texte et visuels sur desktop */
   }
   .apropos-text {
-    flex: 2;
-    padding-right: 30px; /* Espace entre texte et visuels */
+    flex: 3; /* Plus d'espace pour le texte */
+    padding-right: 20px; /* Petit espace pour ne pas coller aux visuels */
   }
-  .apropos-visuals { /* MODIFICATION : Conteneur pour photo et carousel */
-    flex: 1;
+  .apropos-visuals {
+    flex: 2; /* Espace pour la photo et le carrousel */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre les éléments visuels */
+    align-items: center; /* Centrer la photo et le carrousel dans cette colonne */
   }
 }
 
 .apropos-text h2 {
-  font-size: 2.8rem; /* Taille de titre plus grande */
+  font-size: 2.8rem;
   color: var(--primary-color);
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 25px;
+  text-align: center; /* Titre centré sur mobile */
 }
 
 @media (min-width: 992px) {
   .apropos-text h2 {
-    text-align: left;
+    text-align: left; /* Titre à gauche sur desktop */
   }
 }
 
 .apropos-text h3 {
-  font-size: 1.8rem;
-  color: var(--primary-color); /* Couleur d'accent pour les sous-titres */
-  margin-top: 20px;
+  font-size: 1.7rem; /* Sous-titres un peu plus grands */
+  color: var(--primary-color);
+  margin-top: 30px; /* Bon espacement avant les sous-titres */
   margin-bottom: 15px;
+  border-bottom: 2px solid var(--primary-color); /* Ligne de soulignement pour démarquer */
+  padding-bottom: 8px;
+  display: inline-block; /* Pour que la bordure ne prenne pas toute la largeur */
 }
 
-/* MODIFICATION : Conteneur pour la photo pour mieux la gérer */
+.apropos-text p {
+  font-size: 1.05rem; /* Taille de police pour le corps de texte */
+  line-height: 1.75; /* Interligne confortable */
+  color: var(--light-text-color);
+  margin-bottom: 20px;
+  text-align: left; /* Texte aligné à gauche pour une meilleure lisibilité web */
+}
+
+.apropos-visuals {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre les enfants (photo, titre carrousel, carrousel) */
+  gap: 25px; /* Espace entre la photo et le carrousel */
+}
+
 .profile-photo-container {
-  text-align: center; /* Centre la photo sur mobile si elle est seule */
-  margin-bottom: 30px;
+  text-align: center; /* Assure le centrage de l'image inline-block */
+  margin-bottom: 10px; /* Espace si titre du carrousel est juste en dessous */
 }
 
 .profile-photo {
-  display: inline-block; /* Permet le centrage avec text-align sur le parent */
-  width: 180px;
-  height: 180px;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  /* margin: 0 auto 30px auto; /* Centré sur mobile, enlevé pour flexbox sur desktop */
-  border: 5px solid var(--primary-color); /* Utilisation de la variable */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 6px solid var(--primary-color); /* Bordure plus épaisse et distinctive */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Ombre plus prononcée */
 }
 
 @media (min-width: 992px) {
-  .profile-photo-container {
-    /* Si la photo est dans .apropos-visuals, plus besoin de float */
-    margin-bottom: 20px; /* Espace sous la photo avant le carousel */
-  }
   .profile-photo {
-    width: 220px; /* Photo un peu plus grande sur desktop */
-    height: 220px;
+    width: 240px; /* Photo plus grande sur desktop */
+    height: 240px;
   }
 }
 
-
-.apropos-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--light-text-color);
-  margin-bottom: 20px; /* Espacement accru */
-  text-align: left; /* MODIFICATION : Passage à l'alignement à gauche */
-}
-
-.apropos-visuals h3 { /* MODIFICATION : Ce titre est maintenant dans .apropos-visuals */
+.apropos-visuals h3 { /* Titre pour le carrousel de performances */
   text-align: center;
-  font-size: 1.5rem;
-  color: var(--text-color); /* Couleur de texte standard pour ce titre */
-  margin-bottom: 20px;
-  margin-top: 0; /* Si c'est le premier élément dans .apropos-visuals après la photo */
+  font-size: 1.7rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
 }
 
-.carousel-container { /* MODIFICATION : Conteneur pour le carousel */
+.carousel-container.performance-carousel {
   width: 100%;
-  max-width: 400px; /* Limite la largeur du carousel */
-  margin: 0 auto; /* Le centrage est déjà géré par align-items du parent flex */
+  max-width: 480px; /* Largeur maximale pour le carrousel textuel */
+  margin: 0 auto; /* Centrage horizontal */
+  background-color: #ffffff; /* Fond blanc pour le carrousel */
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-border-radius);
+  padding: 25px 20px; /* Padding interne */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
 }
 
-.screenshot-image {
+.performance-slide {
+  text-align: center;
+  padding: 10px 15px; /* Padding pour le contenu de chaque slide */
+  min-height: 130px; /* Hauteur minimale pour la cohérence */
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.performance-slide h4 { /* Titre du jeu dans le slide */
+  font-family: var(--heading-font);
+  font-size: 1.35rem; /* Légèrement plus grand */
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.performance-slide p { /* Description de la performance */
+  font-family: var(--body-font);
+  font-size: 1rem;
+  color: var(--light-text-color);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Styles spécifiques pour les flèches et points du carrousel de performance si nécessaire */
+.performance-carousel .slick-prev {
+  left: -10px; /* Ajustement pour être plus proche du contenu */
+}
+.performance-carousel .slick-next {
+  right: -10px;
+}
+/* Les styles globaux des flèches (taille, couleur) de App.css s'appliquent déjà */
+
+.performance-carousel .slick-dots {
+  bottom: -20px; /* Espace pour les points sous le carrousel */
+}
+/* Les styles globaux des points (taille, couleur) de App.css s'appliquent déjà */
+
+
+/* Styles pour le carrousel d'images (si vous le réactivez ou en avez un autre) */
+.screenshot-image { /* Si vous utilisez un carrousel d'images séparé */
   width: 100%;
-  max-height: 350px; /* Ajuste selon tes images */
-  object-fit: contain; /* ou 'cover' si tu préfères remplir */
+  max-height: 350px;
+  object-fit: contain;
   border-radius: 8px;
   border: 1px solid #ddd;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* S'assurer que le slider ne déborde pas */
-.apropos-visuals .slick-slider {
-  margin: 0 auto;
 }

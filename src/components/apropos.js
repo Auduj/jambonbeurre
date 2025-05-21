@@ -1,30 +1,59 @@
 // src/components/APropos.js
 import React from 'react';
 import Slider from 'react-slick';
-import './APropos.css';
+import './APropos.css'; // Assurez-vous que le CSS est adapté
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// REMPLACEZ par vos vraies images et descriptions alternatives
-const screenshots = [
-  { id: 1, src: '/images/wow-raid-top500.jpg', alt: 'Top 500 raid mythique World of Warcraft' },
-  { id: 2, src: '/images/apex-top500.jpg', alt: 'Top 500 Apex Legends' },
-  { id: 3, src: '/images/overwatch-top500.jpg', alt: 'Top 500 Overwatch 2' },
-  { id: 4, src: '/images/marvel-rivals-top1000.jpg', alt: 'Top 1000 Marvel Rivals' },
-  // Ajoute d'autres screenshots pertinents
+// MODIFICATION : Adapter les données pour qu'elles soient textuelles.
+// Vous pouvez toujours ajouter un champ 'src' si vous voulez mélanger texte et images.
+const performancesData = [
+  {
+    id: 1,
+    type: 'jeu', // Pourrait être utilisé pour styler différemment
+    titre: 'World of Warcraft',
+    description: 'Top 500 en raid mythique (20 joueurs) & Top 20 DH Havoc en Donjon Mythique+.',
+    // src: '/images/wow-performance.jpg', // Optionnel: image de fond ou icône
+    // alt: 'Performance World of Warcraft'
+  },
+  {
+    id: 2,
+    type: 'jeu',
+    titre: 'Apex Legends',
+    description: 'Atteinte du Top 500 classement Maître/Prédateur.',
+    // src: '/images/apex-performance.jpg',
+    // alt: 'Performance Apex Legends'
+  },
+  {
+    id: 3,
+    type: 'jeu',
+    titre: 'Overwatch 2',
+    description: 'Classement Top 500 en tant que joueur polyvalent.',
+    // src: '/images/overwatch-performance.jpg',
+    // alt: 'Performance Overwatch 2'
+  },
+  {
+    id: 4,
+    type: 'jeu',
+    titre: 'Marvel Rivals',
+    description: 'Actuellement classé parmi les Top 1000 joueurs mondiaux.',
+    // src: '/images/marvel-rivals-performance.jpg',
+    // alt: 'Performance Marvel Rivals'
+  },
+  // Ajoutez d'autres performances si nécessaire
 ];
 
 const APropos = () => {
   const settings = {
     dots: true,
-    infinite: screenshots.length > 1,
-    speed: 500,
+    infinite: performancesData.length > 1,
+    speed: 700, // Vitesse de transition un peu plus lente pour le texte
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: screenshots.length > 1,
-    autoplaySpeed: 4000,
+    autoplay: performancesData.length > 1,
+    autoplaySpeed: 5000, // Plus de temps pour lire le texte
     fade: true,
-    adaptiveHeight: true, // Utile si les images ont des hauteurs différentes
+    adaptiveHeight: true, // Important si les descriptions ont des longueurs variables
   };
 
   return (
@@ -32,15 +61,13 @@ const APropos = () => {
       <div className="container">
         <div className="apropos-content">
           <div className="apropos-text">
-            <h2>À Propos de Moi</h2>
-            {/* MODIFICATION : Intégration de votre nouveau texte */}
+            <h2>À Propos de JambonBeurre</h2>
             <p>
               Je m'appelle JambonBeurre, joueur compétitif depuis plusieurs années sur des jeux d'équipe tels que World of Warcraft (Top 500 en raid mythique 20 joueurs et Top 20 Dh Havoc en Donjon), Apex Legends (Top 500) et Overwatch 2 (Top 500), et actuellement classé parmi les Top 1000 mondial sur Marvel Rivals.
             </p>
             <p>
               Fort de cette expérience sur des jeux d'équipe de haut niveau, je vous propose ici un concentré des principales notions à maîtriser pour devenir un joueur plus intelligent, plus rapide et plus impactant.
             </p>
-            {/* Vous pouvez ajouter d'autres sections de texte ici si nécessaire, par exemple : */}
             <h3>Ma Philosophie de Coaching</h3>
             <p>
               Je crois fermement qu'au-delà des mécaniques pures, la compréhension stratégique, la communication efficace et un mental solide sont les clés pour exceller. Mon coaching vise à développer ces aspects chez chaque joueur, quel que soit son point de départ.
@@ -53,25 +80,29 @@ const APropos = () => {
 
           <div className="apropos-visuals">
             <div className="profile-photo-container">
-              {/* Assurez-vous que cette image existe et est pertinente */}
               <img src="/images/profile-jambonbeurre.jpg" alt="JambonBeurre - Coach eSport" className="profile-photo" />
             </div>
-            {screenshots.length > 0 && (
+
+            {/* MODIFICATION : Carrousel pour les performances textuelles */}
+            {performancesData.length > 0 && (
               <>
                 <h3>Mes Performances en Jeu</h3>
-                <div className="carousel-container">
+                <div className="carousel-container performance-carousel"> {/* Ajout d'une classe spécifique */}
                   <Slider {...settings}>
-                    {screenshots.map(screen => (
-                      <div key={screen.id}>
-                        <img src={screen.src} alt={screen.alt} className="screenshot-image" />
+                    {performancesData.map(perf => (
+                      <div key={perf.id} className="performance-slide">
+                        {/* Optionnel: si vous avez une image de fond ou une icône pour chaque jeu */}
+                        {/* perf.src && <img src={perf.src} alt={perf.alt || perf.titre} className="performance-background-image" /> */}
+                        <h4>{perf.titre}</h4>
+                        <p>{perf.description}</p>
                       </div>
                     ))}
                   </Slider>
                 </div>
               </>
             )}
-            {screenshots.length === 0 && (
-              <p className="text-center">Les preuves de mon niveau seront bientôt disponibles.</p>
+            {performancesData.length === 0 && (
+              <p className="text-center">Mes performances seront bientôt détaillées ici.</p>
             )}
           </div>
         </div>
