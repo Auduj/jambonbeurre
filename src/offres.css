@@ -1,0 +1,146 @@
+/* src/components/Offres.css */
+.offres-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+  }
+  
+  .offres-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .offres-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Une colonne par défaut pour mobile */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .offres-grid {
+      grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour tablettes */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .offres-grid {
+      /* Adaptez le nombre de colonnes en fonction du nombre d'offres */
+      /* Par exemple, pour 4 offres (1 gratuite + 3 payantes) */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  .offre-carte {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pour aligner le bouton en bas */
+  }
+  
+  .offre-carte.offre-gratuite {
+    border-left: 5px solid #28a745; /* Accent pour l'offre gratuite */
+  }
+  
+  .offre-carte:not(.offre-gratuite) {
+    border-left: 5px solid #007bff; /* Accent pour les offres payantes */
+  }
+  
+  
+  .offre-carte h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .offre-type {
+    font-size: 0.9rem;
+    background-color: #007bff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: normal;
+  }
+  
+  .offre-gratuite .offre-type {
+    background-color: #28a745;
+  }
+  
+  
+  .offre-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Permet à la description de prendre l'espace disponible */
+  }
+  
+  .offre-carte ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  
+  .offre-carte ul li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .offre-carte ul li::before {
+    content: '✓'; /* Ou une icône SVG */
+    color: #28a745; /* Vert pour les points positifs */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  
+  .offre-avantages {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+  
+  .offre-tarif {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+  .offre-gratuite .offre-tarif {
+    color: #28a745;
+  }
+  
+  .offre-carte .btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: auto; /* Pousse le bouton en bas */
+  }
