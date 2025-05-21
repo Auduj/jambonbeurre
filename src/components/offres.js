@@ -83,30 +83,10 @@ const Offres = () => {
         <p className="section-subtitle">Choisissez l'accompagnement qui correspond le mieux à vos ambitions.</p>
         <div className="offres-grid">
           {offresData.map((offre) => (
-            <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''}`}>
-              <h3>{offre.titre} <span className="offre-type">{offre.type}</span></h3>
-              <p className="offre-description">{offre.description}</p>
-              <ul>
-                {offre.details.map((detail, index) => (
-                  // MODIFICATION : Utiliser l'icône ici
-                  <li key={index}>
-                    <FaCheckCircle className="offre-detail-icon" /> {detail}
-                  </li>
-                ))}
-              </ul>
-              {offre.avantages && <p className="offre-avantages"><strong>Avantage :</strong> {offre.avantages}</p>}
-              <p className="offre-tarif">{offre.tarif}</p>
-              {offre.isGratuit ? (
-                <a
-                  href={offre.actionLink}
-                  className="btn btn-secondary offre-action" // MODIFICATION : btn-secondary pour le gratuit
-                  download={offre.downloadName} // Ajout de l'attribut download
-                >
-                  {offre.actionText}
-                </a>
-              ) : (
-                <a href={offre.actionLink} className="btn btn-primary offre-action">{offre.actionText}</a>
-              )}
+            // MODIFICATION : Ajout de la classe 'offre-populaire' pour l'offre de 3 mois par exemple
+            <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${offre.id === '3mois' ? 'offre-populaire' : ''}`}>
+              <h3>{offre.titre} {offre.type && <span className="offre-type">{offre.type}</span>}</h3>
+              {/* ... reste du JSX ... */}
             </div>
           ))}
         </div>
