@@ -80,7 +80,7 @@ const APropos = () => {
 
           <div className="apropos-visuals">
             <div className="profile-photo-container">
-              <img src="/images/profile-jambonbeurre.jpg" alt="JambonBeurre - Coach eSport" className="profile-photo" />
+              <img src="/images/profile-jambonbeurre.png" alt="JambonBeurre - Coach eSport" className="profile-photo" />
             </div>
 
             {/* MODIFICATION : Carrousel pour les performances textuelles */}
