@@ -1,9 +1,9 @@
-// Mon composant Offres.js, pour présenter mes différents services.
+// src/components/Offres.js
 import React from 'react';
-import './Offres.css';
-// J'importe l'icône de validation de react-icons.
-import { FaCheckCircle } from 'react-icons/fa';
+import './Offres.css'; // Assurez-vous que le CSS est lié et stylé comme désiré
+import { FaCheckCircle } from 'react-icons/fa'; // Icône pour les détails
 
+// Définition des données des offres (assurez-vous que cela correspond à vos besoins)
 const offresData = [
   {
     id: 'gratuit',
@@ -17,9 +17,9 @@ const offresData = [
     ],
     tarif: 'GRATUIT',
     actionText: 'Télécharger l\'extrait',
-    actionLink: '/pdf/extrait-gratuit.pdf', // À vérifier : ce chemin doit pointer vers le bon fichier ou vers #inscription
+    actionLink: '/pdf/extrait-gratuit.pdf', // Assurez-vous que ce chemin est correct
     isGratuit: true,
-    downloadName: "Extrait_JambonBeurre_Coaching.pdf" // Le nom du fichier quand on le télécharge
+    downloadName: "Extrait_JambonBeurre_Coaching.pdf"
   },
   {
     id: '1mois',
@@ -33,9 +33,10 @@ const offresData = [
       'Accès complet au PDF premium',
     ],
     avantages: 'Idéal pour un objectif précis ou un coup de boost.',
-    tarif: 'XXX €', // À mettre à jour avec mon vrai tarif
+    tarif: 'XXX €', // REMPLACEZ PAR VOTRE TARIF
     actionText: 'Choisir cette offre',
-    actionLink: '#inscription', // Ça renvoie vers le formulaire d'inscription
+    actionLink: '#inscription',
+    isGratuit: false,
   },
   {
     id: '3mois',
@@ -51,9 +52,10 @@ const offresData = [
       'Bonus : Module X exclusif',
     ],
     avantages: 'Le plus populaire pour un changement en profondeur.',
-    tarif: 'YYY €', // À mettre à jour avec mon vrai tarif
+    tarif: 'YYY €', // REMPLACEZ PAR VOTRE TARIF
     actionText: 'Choisir cette offre',
     actionLink: '#inscription',
+    isGratuit: false,
   },
   {
     id: '6mois',
@@ -69,9 +71,10 @@ const offresData = [
       'Bonus : Accès à un groupe privé + Module Y',
     ],
     avantages: 'Pour ceux qui visent l\'excellence et une transformation totale.',
-    tarif: 'ZZZ €', // À mettre à jour avec mon vrai tarif
+    tarif: 'ZZZ €', // REMPLACEZ PAR VOTRE TARIF
     actionText: 'Choisir cette offre',
     actionLink: '#inscription',
+    isGratuit: false,
   },
 ];
 
@@ -83,11 +86,45 @@ const Offres = () => {
         <p className="section-subtitle">Choisissez l'accompagnement qui correspond le mieux à vos ambitions.</p>
         <div className="offres-grid">
           {offresData.map((offre) => {
-            // Je mets en avant l'offre de 3 mois avec une classe spéciale.
+            // Mettre en avant l'offre de 3 mois avec une classe spéciale.
+            const estPopulaire = offre.id === '3mois'; // Détermine si l'offre est populaire
             return (
-              <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${offre.id === '3mois' ? 'offre-populaire' : ''}`}>
+              <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${estPopulaire ? 'offre-populaire' : ''}`}>
                 <h3>{offre.titre} {offre.type && <span className="offre-type">{offre.type}</span>}</h3>
-                {/* ... reste du JSX ... */}
+                
+                {/* MODIFICATION : Contenu complet de la carte d'offre */}
+                <p className="offre-description">{offre.description}</p>
+                
+                <ul className="offre-details">
+                  {offre.details.map((detail, index) => (
+                    <li key={index}>
+                      <FaCheckCircle className="offre-detail-icon" /> {detail}
+                    </li>
+                  ))}
+                </ul>
+                
+                {offre.avantages && (
+                  <p className="offre-avantages">
+                    <strong>Avantage :</strong> {offre.avantages}
+                  </p>
+                )}
+                
+                <p className="offre-tarif">{offre.tarif}</p>
+                
+                {offre.isGratuit ? (
+                  <a
+                    href={offre.actionLink}
+                    className="btn btn-secondary offre-action" // Utilise btn-secondary pour le gratuit
+                    download={offre.downloadName}
+                  >
+                    {offre.actionText}
+                  </a>
+                ) : (
+                  <a href={offre.actionLink} className="btn btn-primary offre-action">
+                    {offre.actionText}
+                  </a>
+                )}
+                {/* Fin de la MODIFICATION */}
               </div>
             );
           })}
