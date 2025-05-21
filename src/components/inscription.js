@@ -1,4 +1,4 @@
-// src/components/Inscription.js
+// Mon composant Inscription.js, pour les inscriptions à mes offres.
 import React, { useState } from 'react';
 import './Inscription.css';
 
@@ -6,7 +6,7 @@ const Inscription = () => {
   const [formData, setFormData] = useState({
     nom: '',
     email: '',
-    offre: 'gratuit', // Valeur par défaut
+    offre: 'gratuit', // C'est l'option par défaut
     consent: false,
   });
   const [message, setMessage] = useState('');
@@ -28,21 +28,20 @@ const Inscription = () => {
       return;
     }
 
-    // Ici, vous intégreriez la logique d'envoi vers un backend ou un service tiers (Mailchimp, Sendinblue, etc.)
-    // Pour l'exemple, on simule un succès
+    // Ici, j'ajouterai la logique pour envoyer les données vers un service comme Mailchimp plus tard.
+    // Pour l'instant, on fait semblant que ça marche.
     console.log('Données du formulaire:', formData);
 
     if (formData.offre === 'gratuit') {
       setMessage('Merci ! Vous allez recevoir l\'extrait PDF par email (simulation).');
-      // Idéalement, déclencher le téléchargement ou l'envoi d'email ici
-      // Pour un téléchargement direct après soumission (alternative à l'email) :
+      // Plus tard, je pourrai ajouter un vrai téléchargement avec :
       // window.location.href = '/pdf/extrait-gratuit.pdf';
     } else {
       setMessage(`Merci pour votre intérêt pour l'offre ${formData.offre} ! Nous vous contacterons bientôt (simulation).`);
-      // Rediriger vers une page de paiement ou afficher des instructions
+      // Ici, je pourrai rediriger vers une page de paiement plus tard.
     }
 
-    setFormData({ nom: '', email: '', offre: 'gratuit', consent: false }); // Reset form
+    setFormData({ nom: '', email: '', offre: 'gratuit', consent: false }); // On vide le formulaire
   };
 
   return (

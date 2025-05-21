@@ -1,22 +1,22 @@
-/* src/components/Offres.css */
+/* Mon CSS pour la section des offres. */
 .offres-section {
-  padding: 80px 20px; /* Augmentation du padding vertical */
-  background-color: var(--background-color); /* Fond clair par défaut */
+  padding: 80px 20px; /* J'ai augmenté le padding en haut et en bas. */
+  background-color: var(--background-color); /* La couleur de fond de base. */
 }
 
 .offres-section h2 {
   text-align: center;
-  font-size: 2.8rem; /* Titre de section plus grand */
+  font-size: 2.8rem; /* Un gros titre pour attirer l'attention. */
   color: var(--primary-color);
-  margin-bottom: 20px; /* Espace sous le titre */
+  margin-bottom: 20px; /* Un peu d'espace sous le titre. */
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 1.2rem;
   color: var(--light-text-color);
-  margin-bottom: 50px; /* Espace accru avant les cartes */
-  max-width: 700px; /* Limiter la largeur du sous-titre */
+  margin-bottom: 50px; /* Plus d'espace avant les cartes. */
+  max-width: 700px; /* Pour que le texte ne soit pas trop large. */
   margin-left: auto;
   margin-right: auto;
 }
@@ -24,55 +24,54 @@
 .offres-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 35px; /* Espace accru entre les cartes */
+  gap: 35px; /* J'aime bien cet espace entre les cartes. */
   max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .offres-grid {
-    /* Pour 3 offres, on peut utiliser repeat(3, 1fr) ou auto-fit pour plus de flexibilité */
-    /* Si vous avez 4 offres (1 gratuite + 3 payantes), adaptez ici */
+    /* Je peux ajuster le nombre de colonnes selon le nombre d'offres. */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
 .offre-carte {
-  background-color: #ffffff; /* Fond blanc pour les cartes */
+  background-color: #ffffff; /* Fond blanc pour les cartes, c'est propre et simple. */
   border: 1px solid #e0e0e0;
-  border-radius: 12px; /* Bords plus arrondis */
-  padding: 35px 30px; /* Padding interne augmenté */
+  border-radius: 12px; /* Des coins bien arrondis, c'est plus moderne et sympa. */
+  padding: 35px 30px; /* De l'espace à l'intérieur des cartes, pour que tout soit bien visible. */
   text-align: left;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Ombre plus douce et diffuse */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Une ombre légère pour donner du relief, et que ça saute aux yeux. */
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .offre-carte:hover {
-  transform: translateY(-8px); /* Effet de soulèvement plus prononcé */
+  transform: translateY(-8px); /* Ça donne un effet sympa au survol, pour que vous sachiez que vous pouvez cliquer. */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Accentuations différentes pour les offres */
 .offre-carte.offre-gratuite {
-  border-top: 6px solid var(--secondary-color); /* Bordure verte plus épaisse */
+  border-top: 6px solid var(--secondary-color); /* Une belle bordure verte pour l'offre gratuite, pour que vous la reconnaissiez facilement. */
 }
 
 .offre-carte:not(.offre-gratuite) {
-  border-top: 6px solid var(--primary-color); /* Bordure bleue plus épaisse */
+  border-top: 6px solid var(--primary-color); /* Bordure bleue pour les offres payantes, pour que vous sachiez que c'est sérieux. */
 }
 
-/* Badge pour l'offre la plus populaire (à ajouter dynamiquement si besoin) */
+/* Un badge pour mettre en avant l'offre la plus populaire. */
 .offre-carte.offre-populaire {
   position: relative;
-  border-top-color: var(--accent-color); /* Utiliser la couleur d'accent pour populaire */
+  border-top-color: var(--accent-color); /* Une couleur spéciale pour l'offre populaire, pour que vous la remarquiez. */
 }
 
 .offre-populaire::before {
   content: "Populaire";
   position: absolute;
-  top: -15px; /* Ajuster pour chevaucher la bordure */
+  top: -15px; /* Pour que le badge dépasse un peu. */
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--accent-color);
@@ -86,9 +85,9 @@
 
 
 .offre-carte h3 {
-  font-size: 1.6rem; /* Taille du titre de l'offre */
-  color: var(--text-color); /* Couleur de texte standard pour le titre de la carte */
-  margin-bottom: 8px; /* Espace réduit sous le titre */
+  font-size: 1.6rem; /* Une belle taille pour les titres. */
+  color: var(--text-color); /* La couleur de texte principale. */
+  margin-bottom: 8px; /* Un petit espace sous le titre. */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,12 +95,12 @@
 }
 
 .offre-type {
-  font-size: 0.85rem; /* Taille du type d'offre */
+  font-size: 0.85rem; /* Taille parfaite pour le type d'offre. */
   background-color: var(--primary-color);
   color: white;
-  padding: 5px 12px; /* Padding ajusté */
-  border-radius: 15px; /* Badge plus arrondi */
-  font-weight: bold; /* Plus visible */
+  padding: 5px 12px; /* Un peu d'espace autour du texte. */
+  border-radius: 15px; /* Des coins bien arrondis. */
+  font-weight: bold; /* Pour que ce soit bien visible. */
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -111,9 +110,9 @@
 }
 
 .offre-description {
-  font-size: 0.95rem; /* Description légèrement plus petite */
+  font-size: 0.95rem; /* Une taille confortable pour la lecture. */
   color: var(--light-text-color);
-  margin-bottom: 25px; /* Espace avant la liste des détails */
+  margin-bottom: 25px; /* De l'espace avant la liste. */
   flex-grow: 1;
   line-height: 1.6;
 }
@@ -121,23 +120,23 @@
 .offre-carte ul {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 25px; /* Espace avant les avantages/tarif */
+  margin-bottom: 25px; /* De l'espace avant le tarif. */
   flex-grow: 1;
 }
 
 .offre-carte ul li {
-  font-size: 0.95rem; /* Détails légèrement plus petits */
+  font-size: 0.95rem; /* Taille parfaite pour les détails. */
   color: var(--light-text-color);
-  margin-bottom: 12px; /* Espacement des items de liste */
+  margin-bottom: 12px; /* Un espacement confortable. */
   display: flex;
   align-items: flex-start;
 }
 
 .offre-detail-icon {
-  color: var(--secondary-color); /* Couleur des icônes check */
+  color: var(--secondary-color); /* J'aime cette couleur pour les icônes. */
   margin-right: 10px;
-  margin-top: 3px; /* Ajustement vertical */
-  font-size: 1.1em; /* Taille de l'icône */
+  margin-top: 3px; /* Un petit ajustement pour l'alignement. */
+  font-size: 1.1em; /* Une belle taille pour les icônes. */
   flex-shrink: 0;
 }
 
@@ -146,9 +145,9 @@
   color: var(--text-color);
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #f0f4f8; /* Fond légèrement différent pour les avantages */
+  background-color: #f0f4f8; /* Un fond léger pour les avantages. */
   border-radius: 6px;
-  font-style: normal; /* On enlève l'italique si le fond le distingue assez */
+  font-style: normal; /* Pas besoin d'italique avec ce fond. */
 }
 
 .offre-avantages strong {
@@ -156,23 +155,23 @@
 }
 
 .offre-tarif {
-  font-size: 2.2rem; /* Tarif plus grand */
+  font-size: 2.2rem; /* Gros et visible, le prix. */
   font-weight: bold;
   color: var(--primary-color);
-  margin-bottom: 30px; /* Espace avant le bouton */
-  text-align: center; /* Centrer le tarif */
+  margin-bottom: 30px; /* De l'espace avant le bouton. */
+  text-align: center; /* Le prix bien centré. */
 }
 
 .offre-gratuite .offre-tarif {
   color: var(--secondary-color);
-  font-size: 1.8rem; /* Tarif "GRATUIT" peut être un peu plus petit */
+  font-size: 1.8rem; /* Un peu plus petit pour "GRATUIT". */
 }
 
 .offre-carte .offre-action {
   display: block;
   width: 100%;
-  padding: 15px 20px; /* Boutons plus grands */
+  padding: 15px 20px; /* Des boutons bien visibles. */
   font-size: 1.05em;
-  margin-top: auto; /* Pousse le bouton en bas */
-  /* Styles de .btn, .btn-primary, .btn-secondary sont dans App.css */
+  margin-top: auto; /* Pour que le bouton reste en bas. */
+  /* Les styles des boutons sont dans App.css. */
 }

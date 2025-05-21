@@ -1,7 +1,7 @@
-// src/components/Footer.js
+// Mon composant Footer.js, le pied de page de mon site.
 import React from 'react';
 import './Footer.css';
-// Tu peux utiliser des icônes SVG ou une librairie comme react-icons (npm install react-icons)
+// J'utilise react-icons pour les icônes des réseaux sociaux. C'est pratique !
 import { FaDiscord, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 const Footer = () => {
@@ -27,7 +27,7 @@ const Footer = () => {
         <p className="copyright">
           &copy; {year} JambonBeurre. Tous droits réservés.
         </p>
-        {/* Optionnel: Liens vers Politique de confidentialité, Mentions légales */}
+        {/* Les trucs légaux, c'est important aussi ! */}
         <div className="footer-links">
             <a href="/mentions-legales">Mentions Légales</a>
             <a href="/politique-confidentialite">Politique de Confidentialité</a>

@@ -1,4 +1,4 @@
-// src/components/FAQ.js
+// Mon composant FAQ.js, pour répondre aux questions les plus courantes.
 import React, { useState } from 'react';
 import './FAQ.css';
 
@@ -50,7 +50,7 @@ const FAQ = () => {
       if (i === index) {
         faq.open = !faq.open;
       } else {
-        faq.open = false; // Optionnel : ferme les autres questions
+        faq.open = false; // Optionnel : ça ferme les autres questions quand j'en ouvre une. Pratique !
       }
       return faq;
     }));

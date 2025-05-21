@@ -1,32 +1,32 @@
-/* src/components/APropos.css */
+/* Mon CSS pour la section 'À Propos'. */
 .apropos-section {
-  padding: 80px 20px; /* Padding vertical augmenté */
-  background-color: var(--light-gray-background); /* Couleur de fond pour alternance */
+  padding: 80px 20px; /* J'ai augmenté un peu le padding vertical ici. */
+  background-color: var(--light-gray-background); /* Une couleur de fond pour alterner un peu les sections. */
 }
 
 .apropos-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Par défaut pour mobile */
-  gap: 30px; /* Espace entre les blocs texte et visuels sur mobile */
+  flex-direction: column; /* Par défaut, c'est pensé pour les mobiles. */
+  gap: 30px; /* Un peu d'espace entre le texte et les images sur mobile. */
 }
 
 @media (min-width: 992px) {
   .apropos-content {
-    flex-direction: row; /* Texte à gauche, visuels à droite sur desktop */
-    align-items: flex-start; /* Pour un meilleur alignement si les contenus ont des hauteurs différentes */
-    gap: 50px; /* Espace accru entre texte et visuels sur desktop */
+    flex-direction: row; /* Sur grand écran, le texte à gauche et les visuels à droite. */
+    align-items: flex-start; /* Pour que tout soit bien aligné, même si les blocs n'ont pas la même hauteur. */
+    gap: 50px; /* Plus d'espace entre le texte et les visuels sur desktop. */
   }
   .apropos-text {
-    flex: 3; /* Plus d'espace pour le texte */
-    padding-right: 20px; /* Petit espace pour ne pas coller aux visuels */
+    flex: 3; /* Je donne plus de place au texte. */
+    padding-right: 20px; /* Un petit espace pour que le texte ne colle pas aux images. */
   }
   .apropos-visuals {
-    flex: 2; /* Espace pour la photo et le carrousel */
+    flex: 2; /* De la place pour ma photo et le carrousel. */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrer la photo et le carrousel dans cette colonne */
+    align-items: center; /* Je centre la photo et le carrousel dans cette zone. */
   }
 }
 
@@ -34,43 +34,43 @@
   font-size: 2.8rem;
   color: var(--primary-color);
   margin-bottom: 25px;
-  text-align: center; /* Titre centré sur mobile */
+  text-align: center; /* Le titre est centré sur mobile. */
 }
 
 @media (min-width: 992px) {
   .apropos-text h2 {
-    text-align: left; /* Titre à gauche sur desktop */
+    text-align: left; /* Et à gauche sur les grands écrans. */
   }
 }
 
 .apropos-text h3 {
-  font-size: 1.7rem; /* Sous-titres un peu plus grands */
+  font-size: 1.7rem; /* Des sous-titres un peu plus grands, c'est plus lisible. */
   color: var(--primary-color);
-  margin-top: 30px; /* Bon espacement avant les sous-titres */
+  margin-top: 30px; /* Un bon espacement avant mes sous-titres. */
   margin-bottom: 15px;
-  border-bottom: 2px solid var(--primary-color); /* Ligne de soulignement pour démarquer */
+  border-bottom: 2px solid var(--primary-color); /* Une petite ligne en dessous pour bien les démarquer. */
   padding-bottom: 8px;
-  display: inline-block; /* Pour que la bordure ne prenne pas toute la largeur */
+  display: inline-block; /* Comme ça, la bordure ne prend pas toute la largeur, c'est plus joli. */
 }
 
 .apropos-text p {
-  font-size: 1.05rem; /* Taille de police pour le corps de texte */
-  line-height: 1.75; /* Interligne confortable */
+  font-size: 1.05rem; /* La taille de police pour mon texte principal. */
+  line-height: 1.75; /* Un interligne confortable pour la lecture. */
   color: var(--light-text-color);
   margin-bottom: 20px;
-  text-align: left; /* Texte aligné à gauche pour une meilleure lisibilité web */
+  text-align: left; /* J'aligne le texte à gauche, c'est mieux pour lire sur le web. */
 }
 
 .apropos-visuals {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre les enfants (photo, titre carrousel, carrousel) */
-  gap: 25px; /* Espace entre la photo et le carrousel */
+  align-items: center; /* Je centre les éléments ici (photo, titre du carrousel, et le carrousel lui-même). */
+  gap: 25px; /* Un peu d'espace entre ma photo et le carrousel. */
 }
 
 .profile-photo-container {
-  text-align: center; /* Assure le centrage de l'image inline-block */
-  margin-bottom: 10px; /* Espace si titre du carrousel est juste en dessous */
+  text-align: center; /* Ça permet de bien centrer mon image. */
+  margin-bottom: 10px; /* Un peu d'espace au cas où le titre du carrousel serait juste en dessous. */
 }
 
 .profile-photo {
@@ -79,18 +79,18 @@
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border: 6px solid var(--primary-color); /* Bordure plus épaisse et distinctive */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Ombre plus prononcée */
+  border: 6px solid var(--primary-color); /* Une bordure plus épaisse et qui se voit bien. */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Une ombre un peu plus marquée. */
 }
 
 @media (min-width: 992px) {
   .profile-photo {
-    width: 240px; /* Photo plus grande sur desktop */
+    width: 240px; /* Ma photo est plus grande sur les écrans larges. */
     height: 240px;
   }
 }
 
-.apropos-visuals h3 { /* Titre pour le carrousel de performances */
+.apropos-visuals h3 { /* Le titre pour mon carrousel de performances. */
   text-align: center;
   font-size: 1.7rem;
   color: var(--primary-color);
@@ -99,33 +99,33 @@
 
 .carousel-container.performance-carousel {
   width: 100%;
-  max-width: 480px; /* Largeur maximale pour le carrousel textuel */
-  margin: 0 auto; /* Centrage horizontal */
-  background-color: #ffffff; /* Fond blanc pour le carrousel */
+  max-width: 480px; /* Une largeur max pour ce carrousel avec du texte. */
+  margin: 0 auto; /* Pour le centrer horizontalement. */
+  background-color: #ffffff; /* Un fond blanc pour ce carrousel. */
   border: 1px solid var(--border-color);
   border-radius: var(--card-border-radius);
-  padding: 25px 20px; /* Padding interne */
+  padding: 25px 20px; /* Un peu de padding à l'intérieur. */
   box-shadow: 0 3px 10px rgba(0,0,0,0.07);
 }
 
 .performance-slide {
   text-align: center;
-  padding: 10px 15px; /* Padding pour le contenu de chaque slide */
-  min-height: 130px; /* Hauteur minimale pour la cohérence */
+  padding: 10px 15px; /* Du padding pour le contenu de chaque diapo. */
+  min-height: 130px; /* Une hauteur minimale pour que ce soit cohérent. */
   display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.performance-slide h4 { /* Titre du jeu dans le slide */
+.performance-slide h4 { /* Le titre du jeu dans la diapo. */
   font-family: var(--heading-font);
-  font-size: 1.35rem; /* Légèrement plus grand */
+  font-size: 1.35rem; /* Un poil plus grand. */
   color: var(--primary-color);
   margin-bottom: 10px;
 }
 
-.performance-slide p { /* Description de la performance */
+.performance-slide p { /* La description de la performance. */
   font-family: var(--body-font);
   font-size: 1rem;
   color: var(--light-text-color);
@@ -133,23 +133,23 @@
   margin-bottom: 0;
 }
 
-/* Styles spécifiques pour les flèches et points du carrousel de performance si nécessaire */
+/* Des styles spécifiques pour les flèches et les points de ce carrousel si j'en ai besoin. */
 .performance-carousel .slick-prev {
-  left: -10px; /* Ajustement pour être plus proche du contenu */
+  left: -10px; /* J'ajuste pour que ce soit plus proche du contenu. */
 }
 .performance-carousel .slick-next {
   right: -10px;
 }
-/* Les styles globaux des flèches (taille, couleur) de App.css s'appliquent déjà */
+/* Pas besoin de redéfinir les styles globaux des flèches (taille, couleur), ils viennent de App.css. */
 
 .performance-carousel .slick-dots {
-  bottom: -20px; /* Espace pour les points sous le carrousel */
+  bottom: -20px; /* Un peu d'espace pour les points sous le carrousel. */
 }
-/* Les styles globaux des points (taille, couleur) de App.css s'appliquent déjà */
+/* Pareil pour les points, les styles globaux de App.css font le job. */
 
 
-/* Styles pour le carrousel d'images (si vous le réactivez ou en avez un autre) */
-.screenshot-image { /* Si vous utilisez un carrousel d'images séparé */
+/* Des styles pour un carrousel d'images (si je le réactive ou si j'en ajoute un autre). */
+.screenshot-image { /* Au cas où j'utiliserais un carrousel d'images à part. */
   width: 100%;
   max-height: 350px;
   object-fit: contain;

@@ -1,6 +1,6 @@
-// src/components/Accueil.js
+// Mon composant Accueil.js, la première chose que les gens voient !
 import React from 'react';
-import './Accueil.css'; // Fichier CSS pour ce composant
+import './Accueil.css'; // Mon fichier CSS juste pour ce composant.
 
 const Accueil = () => {
   return (
@@ -17,7 +17,7 @@ const Accueil = () => {
             </div>
           </div>
           <div className="accueil-video">
-            <video controls width="100%" poster="/images/video-poster.jpg"> {/* Optionnel: une image affichée avant le play */}
+            <video controls width="100%" poster="/images/video-poster.jpg"> {/* Optionnel : une petite image qui s'affiche avant de lancer la vidéo. */}
               <source src="/video/intro-video.mp4" type="video/mp4" />
               Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
