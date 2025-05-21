@@ -5,24 +5,26 @@ import './APropos.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// REMPLACEZ par vos vraies images
+// REMPLACEZ par vos vraies images et descriptions alternatives
 const screenshots = [
-  { id: 1, src: '/images/screenshot1.jpg', alt: 'Description de la preuve 1' },
-  { id: 2, src: '/images/screenshot2.jpg', alt: 'Description de la preuve 2' },
-  { id: 3, src: '/images/screenshot3.jpg', alt: 'Description de la preuve 3' },
-  // Ajoute d'autres screenshots
+  { id: 1, src: '/images/wow-raid-top500.jpg', alt: 'Top 500 raid mythique World of Warcraft' },
+  { id: 2, src: '/images/apex-top500.jpg', alt: 'Top 500 Apex Legends' },
+  { id: 3, src: '/images/overwatch-top500.jpg', alt: 'Top 500 Overwatch 2' },
+  { id: 4, src: '/images/marvel-rivals-top1000.jpg', alt: 'Top 1000 Marvel Rivals' },
+  // Ajoute d'autres screenshots pertinents
 ];
 
 const APropos = () => {
   const settings = {
     dots: true,
-    infinite: screenshots.length > 1, // Infinite seulement si plus d'une image
+    infinite: screenshots.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: screenshots.length > 1, // Autoplay seulement si plus d'une image
-    autoplaySpeed: 4000, // Augmenté pour laisser le temps de voir
+    autoplay: screenshots.length > 1,
+    autoplaySpeed: 4000,
     fade: true,
+    adaptiveHeight: true, // Utile si les images ont des hauteurs différentes
   };
 
   return (
@@ -31,31 +33,32 @@ const APropos = () => {
         <div className="apropos-content">
           <div className="apropos-text">
             <h2>À Propos de JambonBeurre</h2>
-            {/* MODIFICATION : Texte à remplacer par votre contenu */}
+            {/* MODIFICATION : Intégration de votre nouveau texte */}
             <p>
-              Coach passionné avec plus de <strong>[X années]</strong> d'expérience dans <strong>[Votre Domaine]</strong>, j'ai aidé des dizaines de clients à surmonter leurs blocages et à atteindre des objectifs qu'ils pensaient hors de portée. Mon approche est directe, personnalisée et axée sur des résultats concrets.
-            </p>
-            <h3>Mon Parcours & Expertise</h3>
-            <p>
-              Anciennement <strong>[Votre Ancien Poste/Domaine]</strong>, j'ai moi-même traversé <strong>[Défi que vous avez relevé]</strong>, ce qui m'a donné une compréhension profonde des challenges que vous rencontrez. J'ai développé une méthode unique, la <strong>[Nom de votre méthode, si applicable]</strong>, qui combine <strong>[Technique 1]</strong>, <strong>[Technique 2]</strong> et une bonne dose de pragmatisme.
+              Je m'appelle JambonBeurre, joueur compétitif depuis plusieurs années sur des jeux d'équipe tels que World of Warcraft (Top 500 en raid mythique 20 joueurs et Top 20 Dh Havoc en Donjon), Apex Legends (Top 500) et Overwatch 2 (Top 500), et actuellement classé parmi les Top 1000 mondial sur Marvel Rivals.
             </p>
             <p>
-              Mon expertise se concentre sur <strong>[Expertise 1]</strong>, <strong>[Expertise 2]</strong>, et l'art de transformer les idées en actions tangibles.
+              Fort de cette expérience sur des jeux d'équipe de haut niveau, je vous propose ici un concentré des principales notions à maîtriser pour devenir un joueur plus intelligent, plus rapide et plus impactant.
             </p>
-            <h3>Votre Transformation</h3>
+            {/* Vous pouvez ajouter d'autres sections de texte ici si nécessaire, par exemple : */}
+            <h3>Ma Philosophie de Coaching</h3>
             <p>
-              Mon objectif est de vous fournir les outils, la clarté et la motivation nécessaires pour que vous puissiez non seulement atteindre vos rêves, mais aussi construire une confiance inébranlable en vos capacités. Ensemble, nous allons lever les freins et tracer une feuille de route claire vers votre succès.
+              Je crois fermement qu'au-delà des mécaniques pures, la compréhension stratégique, la communication efficace et un mental solide sont les clés pour exceller. Mon coaching vise à développer ces aspects chez chaque joueur, quel que soit son point de départ.
+            </p>
+            <h3>Ce que vous allez apprendre</h3>
+            <p>
+              Grâce à mes guides et à mon accompagnement, vous découvrirez comment analyser vos propres performances, identifier vos points faibles, optimiser votre prise de décision en jeu et maximiser votre impact au sein de votre équipe.
             </p>
           </div>
 
-          {/* MODIFICATION : Conteneur pour la photo et le carousel */}
           <div className="apropos-visuals">
             <div className="profile-photo-container">
-              <img src="/images/profile.jpg" alt="Votre Photo - JambonBeurre" className="profile-photo" />
+              {/* Assurez-vous que cette image existe et est pertinente */}
+              <img src="/images/profile-jambonbeurre.jpg" alt="JambonBeurre - Coach eSport" className="profile-photo" />
             </div>
             {screenshots.length > 0 && (
               <>
-                <h3>Mon Niveau en Action (Quelques Preuves)</h3>
+                <h3>Mes Performances en Jeu</h3>
                 <div className="carousel-container">
                   <Slider {...settings}>
                     {screenshots.map(screen => (
@@ -68,7 +71,7 @@ const APropos = () => {
               </>
             )}
             {screenshots.length === 0 && (
-              <p>Les preuves de mon niveau seront bientôt disponibles.</p>
+              <p className="text-center">Les preuves de mon niveau seront bientôt disponibles.</p>
             )}
           </div>
         </div>
