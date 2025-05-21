@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css'; // Styles globaux
 
-import Accueil from './components/accueil';
-import Offres from './components/offres';
-import Inscription from './components/inscription';
-import Temoignages from './components/temoignages';
-import APropos from './components/apropos';
-import FAQ from './components/faq';
-import Footer from './components/footer';
+import Accueil from './components/Accueil';
+import Offres from './components/Offres';
+import Inscription from './components/Inscription';
+import Temoignages from './components/Temoignages';
+import APropos from './components/APropos';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
 
 // N'oublie pas d'importer les CSS de react-slick si tu l'utilises
 import "slick-carousel/slick/slick.css";
