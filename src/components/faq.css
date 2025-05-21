@@ -1,4 +1,4 @@
-/* src/components/FAQ.css */
+/* Mon CSS pour la section FAQ. */
 .faq-section {
     padding: 60px 20px;
     background-color: #f9f9f9;
@@ -37,7 +37,7 @@
   }
   
   .faq-item.open .faq-question {
-    background-color: #e7f3ff; /* Léger fond quand ouvert */
+    background-color: #e7f3ff; /* Un petit fond léger quand la question est ouverte. */
   }
   
   .faq-icon {
@@ -46,19 +46,19 @@
   }
   
   .faq-reponse {
-    padding: 0 20px 20px 20px; /* Padding uniquement en bas et sur les côtés */
+    padding: 0 20px 20px 20px; /* Du padding juste en bas et sur les côtés pour la réponse. */
     font-size: 1rem;
     line-height: 1.6;
     color: #555;
-    border-top: 1px solid #e0e0e0; /* Ligne de séparation visible quand ouvert */
-    /* Animation d'ouverture/fermeture */
+    border-top: 1px solid #e0e0e0; /* Une petite ligne pour séparer, visible quand c'est ouvert. */
+    /* L'animation pour que ça s'ouvre et se ferme en douceur. */
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /*padding pour éviter un saut brusque */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Le padding ici, c'est pour éviter un saut bizarre à l'animation. */
   }
   
   .faq-item.open .faq-reponse {
-    max-height: 500px; /* Assez grand pour contenir la réponse */
-    padding: 20px; /* Rétablir le padding complet */
+    max-height: 500px; /* Assez grand pour que toute ma réponse tienne. */
+    padding: 20px; /* Je remets le padding complet ici. */
     transition: max-height 0.4s ease-in, padding 0.4s ease-in;
   }

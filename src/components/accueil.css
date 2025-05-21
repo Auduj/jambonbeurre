@@ -1,7 +1,7 @@
-/* src/components/Accueil.css */
+/* Mon CSS pour la section Accueil. */
 .accueil-section {
     padding: 60px 20px;
-    background-color: #f9f9f9; /* Couleur de fond douce */
+    background-color: #f9f9f9; /* Une couleur de fond douce pour cette section. */
     text-align: center;
   }
   
@@ -24,7 +24,7 @@
     }
     .accueil-video {
       flex: 1;
-      max-width: 500px; /* Ajustez selon la taille souhaitée */
+      max-width: 500px; /* À ajuster si je veux une autre taille. */
     }
   }
   
@@ -57,7 +57,7 @@
   }
   
   .btn-primary {
-    background-color: #007bff; /* Couleur principale */
+    background-color: #007bff; /* Ma couleur principale. */
     color: white;
   }
   

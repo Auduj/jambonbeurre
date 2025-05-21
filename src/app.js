@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css'; // Styles globaux
+import './App.css'; // Mes styles globaux, pour que tout soit cohérent.
 
 import Accueil from './components/Accueil';
 import Offres from './components/Offres';
@@ -9,14 +9,14 @@ import APropos from './components/APropos';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
-// N'oublie pas d'importer les CSS de react-slick si tu l'utilises
+// Important : ne pas oublier d'importer les CSS de react-slick, sinon ça ne marchera pas bien.
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
     <div className="App">
-      {/* Optionnel: Un composant Header/Navbar pour la navigation One Page */}
+      {/* Ma barre de navigation pour naviguer facilement sur la page. */}
       <header className="main-header">
         <nav>
           <a href="#accueil" className="nav-logo">JambonBeurre</a>
@@ -37,7 +37,7 @@ function App() {
         <APropos />
         <Temoignages />
         <FAQ />
-        <Inscription /> {/* Placé ici pour qu'il soit après les offres et la FAQ si on y réfère */}
+        <Inscription /> {/* J'ai mis le composant Inscription ici, c'est plus logique après les offres et la FAQ. */}
       </main>
 
       <Footer />

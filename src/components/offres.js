@@ -1,7 +1,7 @@
-// src/components/Offres.js
+// Mon composant Offres.js, pour présenter mes différents services.
 import React from 'react';
 import './Offres.css';
-// MODIFICATION : Importer l'icône
+// J'importe l'icône de validation de react-icons.
 import { FaCheckCircle } from 'react-icons/fa';
 
 const offresData = [
@@ -17,9 +17,9 @@ const offresData = [
     ],
     tarif: 'GRATUIT',
     actionText: 'Télécharger l\'extrait',
-    actionLink: '/pdf/extrait-gratuit.pdf', // MODIFICATION : Assurez-vous que ce chemin est correct ou pointe vers #inscription
+    actionLink: '/pdf/extrait-gratuit.pdf', // À vérifier : ce chemin doit pointer vers le bon fichier ou vers #inscription
     isGratuit: true,
-    downloadName: "Extrait_JambonBeurre_Coaching.pdf" // Ajout pour l'attribut download
+    downloadName: "Extrait_JambonBeurre_Coaching.pdf" // Le nom du fichier quand on le télécharge
   },
   {
     id: '1mois',
@@ -33,9 +33,9 @@ const offresData = [
       'Accès complet au PDF premium',
     ],
     avantages: 'Idéal pour un objectif précis ou un coup de boost.',
-    tarif: 'XXX €', // Remplacez par votre tarif
+    tarif: 'XXX €', // À mettre à jour avec mon vrai tarif
     actionText: 'Choisir cette offre',
-    actionLink: '#inscription', // Lien vers le formulaire
+    actionLink: '#inscription', // Ça renvoie vers le formulaire d'inscription
   },
   {
     id: '3mois',
@@ -51,7 +51,7 @@ const offresData = [
       'Bonus : Module X exclusif',
     ],
     avantages: 'Le plus populaire pour un changement en profondeur.',
-    tarif: 'YYY €', // Remplacez par votre tarif
+    tarif: 'YYY €', // À mettre à jour avec mon vrai tarif
     actionText: 'Choisir cette offre',
     actionLink: '#inscription',
   },
@@ -69,7 +69,7 @@ const offresData = [
       'Bonus : Accès à un groupe privé + Module Y',
     ],
     avantages: 'Pour ceux qui visent l\'excellence et une transformation totale.',
-    tarif: 'ZZZ €', // Remplacez par votre tarif
+    tarif: 'ZZZ €', // À mettre à jour avec mon vrai tarif
     actionText: 'Choisir cette offre',
     actionLink: '#inscription',
   },
@@ -82,13 +82,15 @@ const Offres = () => {
         <h2>Mes Offres de Coaching et PDF</h2>
         <p className="section-subtitle">Choisissez l'accompagnement qui correspond le mieux à vos ambitions.</p>
         <div className="offres-grid">
-          {offresData.map((offre) => (
-            // MODIFICATION : Ajout de la classe 'offre-populaire' pour l'offre de 3 mois par exemple
-            <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${offre.id === '3mois' ? 'offre-populaire' : ''}`}>
-              <h3>{offre.titre} {offre.type && <span className="offre-type">{offre.type}</span>}</h3>
-              {/* ... reste du JSX ... */}
-            </div>
-          ))}
+          {offresData.map((offre) => {
+            // Je mets en avant l'offre de 3 mois avec une classe spéciale.
+            return (
+              <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${offre.id === '3mois' ? 'offre-populaire' : ''}`}>
+                <h3>{offre.titre} {offre.type && <span className="offre-type">{offre.type}</span>}</h3>
+                {/* ... reste du JSX ... */}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

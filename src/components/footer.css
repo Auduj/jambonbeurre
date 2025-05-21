@@ -1,4 +1,4 @@
-/* src/components/Footer.css */
+/* Mon CSS pour le pied de page. */
 .footer-section {
     background-color: #333;
     color: #f1f1f1;
@@ -12,13 +12,13 @@
   
   .social-links a {
     color: #f1f1f1;
-    font-size: 2rem; /* Taille des icônes */
+    font-size: 2rem; /* La taille de mes icônes. */
     margin: 0 15px;
     transition: color 0.3s ease;
   }
   
   .social-links a:hover {
-    color: #007bff; /* Ou ta couleur de marque */
+    color: #007bff; /* Ou ma couleur de marque, à voir. */
   }
   
   .copyright {

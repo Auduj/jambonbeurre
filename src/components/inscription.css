@@ -1,7 +1,7 @@
-/* src/components/Inscription.css */
+/* Mon CSS pour le formulaire d'inscription. */
 .inscription-section {
     padding: 60px 20px;
-    background-color: #eef5ff; /* Couleur de fond distincte */
+    background-color: #eef5ff; /* J'aime bien cette couleur de fond, c'est doux. */
   }
   
   .inscription-section h2 {
@@ -40,7 +40,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    box-sizing: border-box; /* Important pour que padding n'ajoute pas à la largeur */
+    box-sizing: border-box; /* Important pour que le padding ne fasse pas déborder. */
   }
   
   .form-group-checkbox {
@@ -50,11 +50,11 @@
   
   .form-group-checkbox input[type="checkbox"] {
     margin-right: 10px;
-    width: auto; /* Pour ne pas prendre toute la largeur */
+    width: auto; /* Comme ça, ça prend juste la place nécessaire. */
   }
   
   .form-group-checkbox label {
-    margin-bottom: 0; /* Aligner avec la checkbox */
+    margin-bottom: 0; /* Pour bien aligner avec la checkbox. */
     font-weight: normal;
     font-size: 0.9rem;
   }
@@ -63,7 +63,7 @@
     display: block;
     width: 100%;
     padding: 12px 20px;
-    background-color: #28a745; /* Vert pour l'action positive */
+    background-color: #28a745; /* J'aime le vert pour le bouton de soumission, c'est engageant. */
     color: white;
     border: none;
     border-radius: 5px;
@@ -81,10 +81,10 @@
     margin-top: 15px;
     text-align: center;
     font-size: 1rem;
-    color: #007bff; /* Bleu pour les messages d'information */
+    color: #007bff; /* Le bleu, c'est parfait pour les messages d'info. */
   }
   
-  /* Style pour les messages d'erreur potentiels (non implémenté ici) */
+  /* Pour plus tard, si je veux ajouter des messages d'erreur. */
   .form-message.error {
     color: red;
   }
