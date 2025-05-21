@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/jambonbeurre/static/css/main.bfd74e2e.css",
+    "main.js": "/jambonbeurre/static/js/main.df6ba57b.js",
+    "static/js/453.2ceee4ce.chunk.js": "/jambonbeurre/static/js/453.2ceee4ce.chunk.js",
+    "static/media/slick.svg": "/jambonbeurre/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/jambonbeurre/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/jambonbeurre/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/jambonbeurre/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/jambonbeurre/index.html",
+    "main.bfd74e2e.css.map": "/jambonbeurre/static/css/main.bfd74e2e.css.map",
+    "main.df6ba57b.js.map": "/jambonbeurre/static/js/main.df6ba57b.js.map",
+    "453.2ceee4ce.chunk.js.map": "/jambonbeurre/static/js/453.2ceee4ce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfd74e2e.css",
+    "static/js/main.df6ba57b.js"
+  ]
+}
