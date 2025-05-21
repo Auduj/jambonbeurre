@@ -1,18 +1,30 @@
-/* src/App.css */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
-  color: #333;
-  background-color: #fff;
+/* MODIFICATION : Ajout de variables CSS pour les couleurs et polices */
+:root {
+  --primary-color: #0056b3; /* Bleu ajusté, un peu plus foncé */
+  --secondary-color: #28a745; /* Vert pour les actions gratuites, conservé */
+  --accent-color: #FF6F61; /* Corail doux comme exemple d'accent */
+  --text-color: #333;
+  --light-text-color: #555;
+  --background-color: #fff;
+  --light-gray-background: #f9f9f9; /* Pour les sections alternées */
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+  --nav-height: 70px; /* Hauteur de la barre de navigation */
 }
 
 html {
   scroll-behavior: smooth; /* Pour un défilement doux avec les ancres */
+}
+
+body {
+  margin: 0;
+  /* MODIFICATION : Utilisation des variables de police et amélioration lisibilité */
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65; /* Légèrement augmenté */
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 code {
@@ -27,15 +39,24 @@ code {
   padding: 0 15px; /* Espacement intérieur de base */
 }
 
+/* Styles généraux des titres */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--primary-color); /* Couleur des titres avec la variable principale */
+  margin-top: 0; /* Réinitialisation pour éviter les marges par défaut inattendues */
+}
+
 /* Styles pour le header (navbar) */
 .main-header {
   background-color: #ffffff;
-  padding: 15px 0;
+  padding: 0 20px; /* Ajusté pour padding horizontal uniquement */
+  height: var(--nav-height); /* Utilisation de la variable */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky; /* Barre de navigation fixe en haut */
   top: 0;
   z-index: 1000;
   width: 100%;
+  box-sizing: border-box; /* Pour inclure padding dans la largeur */
 }
 
 .main-header nav {
@@ -43,14 +64,16 @@ code {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
+  height: 100%; /* S'assure que nav prend toute la hauteur du header */
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; /* Déplacé vers .main-header pour que la nav interne soit centrée */
 }
 
 .nav-logo {
-  font-size: 1.8rem;
+  font-family: var(--heading-font); /* Police des titres pour le logo */
+  font-size: 1.8em; /* Ajusté pour une meilleure taille */
   font-weight: bold;
-  color: #007bff; /* Ta couleur principale */
+  color: var(--primary-color); /* Utilisation de la variable */
   text-decoration: none;
 }
 
@@ -59,33 +82,36 @@ code {
   padding: 0;
   margin: 0;
   display: flex;
+  align-items: center; /* Centrer verticalement les éléments de la liste */
   gap: 20px; /* Espace entre les liens */
 }
 
 .main-header nav ul li a {
   text-decoration: none;
-  color: #555;
-  font-weight: 500;
+  color: var(--light-text-color); /* Couleur de texte plus douce pour les liens */
+  font-weight: 500; /* Police un peu moins grasse pour les liens standards */
   padding: 8px 12px;
   border-radius: 4px;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .main-header nav ul li a:hover,
-.main-header nav ul li a.active { /* Classe 'active' à gérer avec JS si besoin pour indiquer la section visible */
-  color: #007bff;
-  background-color: #e7f3ff;
+.main-header nav ul li a.active { /* Style pour le lien actif */
+  color: var(--primary-color);
+  background-color: #e7f3ff; /* Fond léger pour l'élément actif/survolé */
 }
 
 .nav-cta {
-  background-color: #007bff;
+  background-color: var(--secondary-color); /* Vert pour le CTA gratuit/inscription */
   color: white !important; /* Important pour surcharger la couleur de base du lien */
   border-radius: 5px;
   padding: 10px 20px !important; /* Important pour surcharger le padding de base */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .nav-cta:hover {
-  background-color: #0056b3 !important;
+  background-color: #218838 !important; /* Vert plus foncé au survol */
   color: white !important;
 }
 
@@ -101,98 +127,124 @@ code {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
   border: 2px solid transparent;
+  font-family: var(--body-font); /* Assurer la cohérence de la police */
+  font-size: 1em;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: white;
-  border-color: #007bff;
+  border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #004085; /* Bleu plus foncé */
+  border-color: #004085;
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: #007bff;
-  border: 2px solid #007bff;
+  background-color: var(--secondary-color); /* Vert */
+  color: white;
+  border-color: var(--secondary-color);
 }
 
 .btn-secondary:hover {
-  background-color: #007bff;
+  background-color: #218838; /* Vert plus foncé */
+  border-color: #218838;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
   color: white;
 }
 
-/* Responsive pour la navigation (menu burger sur mobile) */
-/* ... (Ajouter le CSS pour un menu burger si nécessaire) ... */
 
 /* S'assurer que les sections ont un padding top pour ne pas être cachées par le header sticky */
+/* MODIFICATION : Ajustement global pour le header sticky */
 section {
-  padding-top: 80px; /* Hauteur approximative du header + marge */
-  margin-top: -80px; /* Compense le padding pour que les ancres mènent au bon endroit */
+  padding-top: calc(var(--nav-height) + 40px); /* 40px de marge supplémentaire */
+  margin-top: calc(-1 * var(--nav-height));
 }
-section:first-of-type { /* Sauf pour la première section si elle n'a pas besoin de ce décalage */
-    padding-top: 20px; /* ou la valeur d'origine */
-    margin-top: 0;
-}
-/* Pour la section accueil spécifiquement si elle est la première */
+/* La première section (Accueil) n'a pas besoin de ce décalage si elle est bien gérée */
 #accueil {
-    padding-top: 20px; /* Réinitialiser ou ajuster le padding-top si besoin */
-    margin-top: 0; /* Réinitialiser la marge négative */
+  padding-top: 40px; /* Ou une valeur spécifique pour la section accueil */
+  margin-top: 0;
 }
 
-
-/* Cache le menu burger par défaut */
+/* Menu burger pour mobile */
 .menu-toggle {
-    display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
 }
 
 
 @media (max-width: 768px) {
-    .main-header nav ul {
-        display: none; /* Cache le menu normal sur mobile */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 70px; /* Hauteur du header */
-        left: 0;
-        background-color: white;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+  .main-header nav ul {
+    display: none; /* Cache le menu normal sur mobile */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: var(--nav-height); /* Hauteur du header */
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
 
-    .main-header nav ul.active { /* Classe à ajouter avec JS pour afficher le menu */
-        display: flex;
-    }
+  .main-header nav ul.active { /* Classe à ajouter avec JS pour afficher le menu */
+    display: flex;
+  }
 
-    .main-header nav ul li {
-        width: 100%;
-        text-align: center;
-    }
+  .main-header nav ul li {
+    width: 100%;
+    text-align: center;
+    margin-left: 0; /* Annuler la marge pour mobile */
+  }
 
-    .main-header nav ul li a {
-        display: block;
-        padding: 15px;
-        border-bottom: 1px solid #eee;
-    }
+  .main-header nav ul li a {
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
 
-    .menu-toggle {
-        display: block; /* Affiche le bouton burger sur mobile */
-    }
+  .menu-toggle {
+    display: block; /* Affiche le bouton burger sur mobile */
+  }
 
-    /* Ajustement du padding des sections pour le header sticky */
-    section {
-      padding-top: 70px;
-      margin-top: -70px;
-    }
-    #accueil {
-        padding-top: 20px;
-        margin-top: 0;
-    }
+  /* Ajustement du padding des sections pour le header sticky en mobile */
+  section {
+    padding-top: calc(var(--nav-height) + 20px); /* Ajuster si le header mobile a une hauteur différente */
+    margin-top: calc(-1 * var(--nav-height));
+  }
+  #accueil {
+    padding-top: 20px; /* Ajuster pour la section accueil sur mobile */
+    margin-top: 0;
+  }
+}
+
+/* Styles globaux pour le carousel Slick (flèches et points) */
+.slick-prev:before,
+.slick-next:before {
+  color: var(--primary-color) !important; /* Utilise la couleur primaire */
+  font-size: 28px !important; /* Taille ajustée */
+}
+
+.slick-dots li button:before {
+  color: var(--primary-color) !important; /* Utilise la couleur primaire */
+  font-size: 10px !important; /* Taille des points */
+  opacity: 0.5; /* Points non actifs un peu plus discrets */
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--primary-color) !important; /* Point actif aussi en couleur primaire */
+  opacity: 1 !important;
 }

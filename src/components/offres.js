@@ -1,6 +1,8 @@
 // src/components/Offres.js
 import React from 'react';
 import './Offres.css';
+// MODIFICATION : Importer l'icône
+import { FaCheckCircle } from 'react-icons/fa';
 
 const offresData = [
   {
@@ -15,8 +17,9 @@ const offresData = [
     ],
     tarif: 'GRATUIT',
     actionText: 'Télécharger l\'extrait',
-    actionLink: '/pdf/extrait-gratuit.pdf', // Lien direct ou vers le formulaire d'inscription
+    actionLink: '/pdf/extrait-gratuit.pdf', // MODIFICATION : Assurez-vous que ce chemin est correct ou pointe vers #inscription
     isGratuit: true,
+    downloadName: "Extrait_JambonBeurre_Coaching.pdf" // Ajout pour l'attribut download
   },
   {
     id: '1mois',
@@ -85,17 +88,24 @@ const Offres = () => {
               <p className="offre-description">{offre.description}</p>
               <ul>
                 {offre.details.map((detail, index) => (
-                  <li key={index}>{detail}</li>
+                  // MODIFICATION : Utiliser l'icône ici
+                  <li key={index}>
+                    <FaCheckCircle className="offre-detail-icon" /> {detail}
+                  </li>
                 ))}
               </ul>
               {offre.avantages && <p className="offre-avantages"><strong>Avantage :</strong> {offre.avantages}</p>}
               <p className="offre-tarif">{offre.tarif}</p>
               {offre.isGratuit ? (
-                <a href={offre.actionLink} className="btn btn-primary" download="Extrait_JambonBeurre_Coaching.pdf">
+                <a
+                  href={offre.actionLink}
+                  className="btn btn-secondary offre-action" // MODIFICATION : btn-secondary pour le gratuit
+                  download={offre.downloadName} // Ajout de l'attribut download
+                >
                   {offre.actionText}
                 </a>
               ) : (
-                <a href={offre.actionLink} className="btn btn-primary">{offre.actionText}</a>
+                <a href={offre.actionLink} className="btn btn-primary offre-action">{offre.actionText}</a>
               )}
             </div>
           ))}
