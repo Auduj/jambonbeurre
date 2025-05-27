@@ -29,6 +29,14 @@
   margin: 0 auto;
 }
 
+.offres-gratuites {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+}
+
 @media (min-width: 768px) {
   .offres-grid {
     /* Je peux ajuster le nombre de colonnes selon le nombre d'offres. */

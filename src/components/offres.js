@@ -71,6 +71,7 @@ const offresData = [
       'Bonus : Accès à un groupe privé + Module Y',
     ],
     avantages: 'Pour ceux qui visent l\'excellence et une transformation totale.',
+    paiementInfos: 'Paiement possible en 2 ou 3 fois (simulation via Stripe).',
     tarif: 'ZZZ €', // REMPLACEZ PAR VOTRE TARIF
     actionText: 'Choisir cette offre',
     actionLink: '#inscription',
@@ -79,59 +80,68 @@ const offresData = [
 ];
 
 const Offres = () => {
+  const offresGratuites = offresData.filter(o => o.isGratuit);
+  const offresPayantes = offresData.filter(o => !o.isGratuit);
+
+  const renderCarte = (offre) => {
+    const estPopulaire = offre.id === '3mois';
+    return (
+      <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${estPopulaire ? 'offre-populaire' : ''}`}>
+        <h3>{offre.titre} {offre.type && <span className="offre-type">{offre.type}</span>}</h3>
+        <p className="offre-description">{offre.description}</p>
+        <ul className="offre-details">
+          {offre.details.map((detail, index) => (
+            <li key={index}>
+              <FaCheckCircle className="offre-detail-icon" /> {detail}
+            </li>
+          ))}
+        </ul>
+        {offre.avantages && (
+          <p className="offre-avantages">
+            <strong>Avantage :</strong> {offre.avantages}
+          </p>
+        )}
+        {offre.paiementInfos && (
+          <p className="offre-avantages">{offre.paiementInfos}</p>
+        )}
+        <p className="offre-tarif">{offre.tarif}</p>
+        {offre.isGratuit ? (
+          <a
+            href={offre.actionLink}
+            className="btn btn-secondary offre-action"
+            download={offre.downloadName}
+          >
+            {offre.actionText}
+          </a>
+        ) : (
+          <a href={offre.actionLink} className="btn btn-primary offre-action">
+            {offre.actionText}
+          </a>
+        )}
+      </div>
+    );
+  };
+
   return (
     <section id="offres" className="offres-section">
       <div className="container">
         <h2>Mes Offres de Coaching et PDF</h2>
         <p className="section-subtitle">Choisissez l'accompagnement qui correspond le mieux à vos ambitions.</p>
-        <div className="offres-grid">
-          {offresData.map((offre) => {
-            // Mettre en avant l'offre de 3 mois avec une classe spéciale.
-            const estPopulaire = offre.id === '3mois'; // Détermine si l'offre est populaire
-            return (
-              <div key={offre.id} className={`offre-carte ${offre.isGratuit ? 'offre-gratuite' : ''} ${estPopulaire ? 'offre-populaire' : ''}`}>
-                <h3>{offre.titre} {offre.type && <span className="offre-type">{offre.type}</span>}</h3>
-                
-                {/* MODIFICATION : Contenu complet de la carte d'offre */}
-                <p className="offre-description">{offre.description}</p>
-                
-                <ul className="offre-details">
-                  {offre.details.map((detail, index) => (
-                    <li key={index}>
-                      <FaCheckCircle className="offre-detail-icon" /> {detail}
-                    </li>
-                  ))}
-                </ul>
-                
-                {offre.avantages && (
-                  <p className="offre-avantages">
-                    <strong>Avantage :</strong> {offre.avantages}
-                  </p>
-                )}
-                
-                <p className="offre-tarif">{offre.tarif}</p>
-                
-                {offre.isGratuit ? (
-                  <a
-                    href={offre.actionLink}
-                    className="btn btn-secondary offre-action" // Utilise btn-secondary pour le gratuit
-                    download={offre.downloadName}
-                  >
-                    {offre.actionText}
-                  </a>
-                ) : (
-                  <a href={offre.actionLink} className="btn btn-primary offre-action">
-                    {offre.actionText}
-                  </a>
-                )}
-                {/* Fin de la MODIFICATION */}
-              </div>
-            );
-          })}
-        </div>
+
+        {offresGratuites.length > 0 && (
+          <div className="offres-gratuites">
+            {offresGratuites.map(renderCarte)}
+          </div>
+        )}
+
+        {offresPayantes.length > 0 && (
+          <div className="offres-grid">
+            {offresPayantes.map(renderCarte)}
+          </div>
+        )}
       </div>
     </section>
   );
-}
+};
 
 export default Offres;

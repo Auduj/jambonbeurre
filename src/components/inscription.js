@@ -1,5 +1,21 @@
 // Mon composant Inscription.js, pour les inscriptions à mes offres.
 import React, { useState } from 'react';
+
+// Redirection vers Stripe (simulation) pour les offres payantes
+const paiementUrls = {
+  '1mois': 'https://buy.stripe.com/test_1mois',
+  '3mois': 'https://buy.stripe.com/test_3mois',
+  '6mois': 'https://buy.stripe.com/test_6mois',
+};
+
+function lancerPaiement(offre) {
+  const url = paiementUrls[offre];
+  if (url && window) {
+    // Normalement, ici on utiliserait window.Stripe et un sessionId retourné par
+    // un backend sécurisé. On se contente de rediriger vers une URL factice.
+    window.location.href = url;
+  }
+}
 import './Inscription.css';
 
 const Inscription = () => {
@@ -33,12 +49,12 @@ const Inscription = () => {
     console.log('Données du formulaire:', formData);
 
     if (formData.offre === 'gratuit') {
-      setMessage('Merci ! Vous allez recevoir l\'extrait PDF par email (simulation).');
+      setMessage("Merci ! Vous allez recevoir l'extrait PDF par email (simulation). Un e-mail de relance vous sera également envoyé.");
       // Plus tard, je pourrai ajouter un vrai téléchargement avec :
       // window.location.href = '/pdf/extrait-gratuit.pdf';
     } else {
-      setMessage(`Merci pour votre intérêt pour l'offre ${formData.offre} ! Nous vous contacterons bientôt (simulation).`);
-      // Ici, je pourrai rediriger vers une page de paiement plus tard.
+      setMessage(`Merci pour votre intérêt pour l'offre ${formData.offre} ! Redirection vers Stripe en cours...`);
+      lancerPaiement(formData.offre); // Simulation de redirection
     }
 
     setFormData({ nom: '', email: '', offre: 'gratuit', consent: false }); // On vide le formulaire

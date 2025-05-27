@@ -7,6 +7,7 @@ import Inscription from './components/Inscription';
 import Temoignages from './components/Temoignages';
 import APropos from './components/APropos';
 import FAQ from './components/FAQ';
+import Blog from './components/Blog';
 import Footer from './components/Footer';
 
 // Important : ne pas oublier d'importer les CSS de react-slick, sinon ça ne marchera pas bien.
@@ -25,6 +26,7 @@ function App() {
             <li><a href="#offres">Offres</a></li>
             <li><a href="#apropos">À Propos</a></li>
             <li><a href="#temoignages">Témoignages</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#inscription" className="nav-cta">S'inscrire</a></li>
           </ul>
@@ -36,6 +38,7 @@ function App() {
         <Offres />
         <APropos />
         <Temoignages />
+        <Blog />
         <FAQ />
         <Inscription /> {/* J'ai mis le composant Inscription ici, c'est plus logique après les offres et la FAQ. */}
       </main>
