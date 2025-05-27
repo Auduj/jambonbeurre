@@ -1,5 +1,5 @@
 // src/components/Temoignages.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick'; // Import du carrousel
 import './Temoignages.css';
 
@@ -7,7 +7,7 @@ import './Temoignages.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const temoignagesData = [
+const defaultTemoignages = [
   {
     id: 1,
     nom: 'Client Satisfait A',
@@ -32,6 +32,34 @@ const temoignagesData = [
 ];
 
 const Temoignages = () => {
+  const [temoignages, setTemoignages] = useState(() => {
+    const saved = localStorage.getItem('temoignages');
+    return saved ? JSON.parse(saved) : defaultTemoignages;
+  });
+  const [formData, setFormData] = useState({ nom: '', avis: '', note: 5 });
+
+  useEffect(() => {
+    localStorage.setItem('temoignages', JSON.stringify(temoignages));
+  }, [temoignages]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.nom || !formData.avis) return;
+    const newTemoignage = {
+      id: Date.now(),
+      nom: formData.nom,
+      avis: formData.avis,
+      note: Number(formData.note) || 5,
+    };
+    setTemoignages([...temoignages, newTemoignage]);
+    setFormData({ nom: '', avis: '', note: 5 });
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -54,9 +82,10 @@ const Temoignages = () => {
     <section id="temoignages" className="temoignages-section">
       <div className="container">
         <h2>Ce que disent mes clients</h2>
-        {temoignagesData.length > 0 ? (
+        <p className="compteur-temoignages">Ils sont déjà {temoignages.length} à avoir suivi le programme</p>
+        {temoignages.length > 0 ? (
           <Slider {...settings} className="temoignages-slider">
-            {temoignagesData.map((temoignage) => (
+            {temoignages.map((temoignage) => (
               <div key={temoignage.id} className="temoignage-carte">
                 {temoignage.photo && <img src={temoignage.photo} alt={temoignage.nom} className="temoignage-photo" />}
                 <p className="temoignage-avis">"{temoignage.avis}"</p>
@@ -73,6 +102,19 @@ const Temoignages = () => {
         ) : (
           <p>Les témoignages arriveront bientôt !</p>
         )}
+                <form className="ajout-temoignage-form" onSubmit={handleSubmit}>
+          <h3>Ajoute ton témoignage</h3>
+          <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder="Ton nom" required />
+          <textarea name="avis" value={formData.avis} onChange={handleChange} placeholder="Ton avis" required />
+          <select name="note" value={formData.note} onChange={handleChange}>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+          <button type="submit" className="btn btn-primary">Envoyer</button>
+        </form>
       </div>
     </section>
   );

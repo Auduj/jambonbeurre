@@ -1,0 +1,28 @@
+.blog-section {
+    padding: 80px 20px;
+    background-color: var(--light-gray-background);
+  }
+  
+  .blog-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .posts {
+    display: grid;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .post {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 25px;
+  }
+  
+  .post h3 {
+    margin-top: 0;
+  }
