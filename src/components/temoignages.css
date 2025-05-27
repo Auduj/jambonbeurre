@@ -66,6 +66,31 @@
   font-size: 1.3rem; /* Etoiles plus grandes */
 }
 
+.compteur-temoignages {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.ajout-temoignage-form {
+  margin-top: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ajout-temoignage-form input,
+.ajout-temoignage-form textarea,
+.ajout-temoignage-form select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--button-border-radius);
+  font-family: inherit;
+}
+
 /* Styles des flèches et points de react-slick sont dans App.css */
 /* Vous pouvez surcharger ici si besoin spécifique pour ce carrousel */
 /*
